@@ -1,0 +1,142 @@
+.book-container > div {
+    display: flex;
+}
+.book-container {
+    margin-top:20px;
+}
+.book-cover {
+    position: relative;
+}
+.book-cover > div {
+       overflow: hidden;
+}
+.download-btn {
+    position: absolute;
+    bottom:5px;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    font-size: 20px;
+    background-color: #343a40;
+    color: white;
+    border:none;
+    cursor: pointer;
+}
+.download-btn:hover {
+    background-color: green;
+}
+.metadata p {
+    text-transform: capitalize;
+}
+.book-detail h1, .book-detail h3 {
+    color: darkslategray;
+    padding: 10px 0;
+}
+.book-detail h3 {
+    border-bottom: 1px solid darkslategrey;
+}
+.description {
+    border-right: 1px solid darkslategrey;
+}
+.download-btn-container {
+    display: none;
+}
+@media only screen  and 
+(max-width: 480px) {
+     .book-detail {
+        width: 80%;
+        margin-left: auto;
+        margin-right:auto;
+     }
+     .book-container > div {
+        display: block; 
+     }
+     .download-btn {
+        display: block;
+     }
+
+}
+@media only screen and 
+(min-width:500px) and (max-width:1280px) {
+    .main-grid {
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+        grid-gap: 5px; 
+
+    }
+    .book-container > div {
+        display: flex;
+
+    }
+    .download-btn {
+        display: none;
+    }
+    .download-btn-container {
+        display: block;
+        position: absolute;
+        bottom:10%;
+        left:5%;
+        width:100%;
+    }
+    .download-btn-container input[type="button"] {
+         width: 80%;
+         border:none;
+         background-color: #343a40;
+         padding: 10px;
+         font-size: 20px;
+         cursor: pointer;
+         color: white;
+         border-radius: 3px;
+    }
+
+    .download-btn-container input[type="button"]:hover {
+        background-color: green;
+    }
+    .book-detail {
+        width: 80%;
+        margin-left: auto;
+        margin-right:auto;
+     }
+     .book-cover, .metadata {
+        width: 50%;
+        margin-right: 10px;
+     }
+     .metadata {
+        display: flex;
+        flex-direction: column;
+        padding-top: 20px;
+        position: relative;
+     }
+
+}
+aside {
+    color: white;
+    padding: 10px;
+    
+}
+.books-category {
+    background-color: #343a40;
+    
+}
+.books-category  a {
+    display:block;
+    padding: 5px;
+    margin:2px;
+    color:white;
+    text-decoration: none;
+    margin-left:5px;
+    font-size:14px;
+    
+}
+.books-category p {
+    background: white;
+    color: black;
+    font-weight: bold;
+    font-style: italic;
+    padding:1px 2px
+}
+.books-category  a:hover {
+    background-color: white;
+    color: darkslategray;
+   
+}

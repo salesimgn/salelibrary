@@ -1,0 +1,87 @@
+form span {
+    display: none;
+}
+.field {
+    display: flex;
+    flex-direction: row;
+
+}
+form {
+    width: 80%;
+    margin:10px;
+    margin-left: auto;
+    margin-right: auto; 
+    background-color: #141a20;
+    color:white;
+    padding: 10px;
+    box-shadow: 1px 1px 10px 3px gray; 
+
+}
+input[type="submit"] {
+    padding: 3px;
+    font-size:16px;
+}
+section h1 {
+    text-align: center;
+    color: #343a40;
+    padding:5px;
+}
+
+@media only screen and 
+    (max-width:480px) {
+        form {
+            width:90%;
+        }
+        .create-account-form {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+@media only screen and 
+(max-width:1280px) {
+    .create-account-form {
+        display: flex;
+        width:70%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    form {
+        margin-top: 10%;
+    }
+
+}
+@media only screen and 
+(max-width:767px) {
+    .create-account-form {
+        display: flex;
+        flex-direction: column;
+        width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+        
+    }
+}
+.field p {
+    padding:5px;
+}
+.field p input {
+    padding:5px;
+}
+.btns {
+    display: flex;
+    justify-content: space-between;
+    padding: 3px 10px;
+}
+.btns a {
+    color:blue;
+}
+.create-account-form {
+    display: flex;
+    margin-top:50px;
+    outline:1px solid #343a40;
+    padding:10px;
+    
+}
+.img-div img {
+    width: 100%;
+}

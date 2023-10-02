@@ -1,0 +1,85 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block css %} 
+<link rel="stylesheet" href="{% static 'book-detail.css' %}"/>
+{% endblock %} 
+{% block js %} 
+    <script src="{% static 'download.js' %}">
+
+    </script>
+{% endblock %} 
+
+{% block content %}
+   <section class="main-grid">
+      <div class="book-detail">
+            <div class="book-container">
+                {% if book.check_title  %}
+                    <h1>{{book.title}}</h1>
+                {% endif %}
+                <div>
+                        <div class="book-cover">
+                                <div>
+                                    <img src="{{book.cover.url}}" width="100%"/>
+                               
+                                </div>
+                                <a href="{% url 'bookstore:download' book.slug %}">                                <input type="button" value="Download"
+                                onclick="download_file('{{book.slug}}');"
+                                class="download-btn"/>
+                                </a>
+                        </div> 
+                        <div class="metadata">
+                            {% if book.check_title %} 
+                            <p> Title: {{book.title}}</p>   
+                            {% endif %}
+                            {% if book.author != '' %}  
+                            <p> Author: {{book.author}}</p>
+                            {% endif %}
+                            {% if book.pages != '' %}  
+                            <p> pages: {{book.pages}}</p>
+                        {% endif %}
+                        {% if book.size != '' %}  
+                            <p> size: {{book.size}} MB</p>
+                            {% endif %}
+                            {% if book.language != '' %}  
+                            <p> Language: {{book.language}}</p>
+                            {% endif %}
+                            {% if book.published_year != '' %}  
+                            <p> Published year: {{book.published_year}}</p>
+                            {% endif %}
+                            {% if book.author != '' %}  
+                            <p> Author: {{book.author}}</p>
+                            {% endif %}
+
+                            <div class="download-btn-container">
+                                <a href="{% url 'bookstore:download' book.slug %}">
+                                <input type="button" value="Download" onclick="download_file('{{book.slug}}');"/>
+
+                               </a>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+           <div class="description">
+                 {% if book.description != '' %}
+                 <h3> book description</h3> 
+                      <p>{{book.description}}</p>
+                 {% endif %}
+                 <p> Uploaded By: {{book.upload_by.username }}</p>
+           </div>
+      </div>
+      <aside>
+            <div class="books-category">
+                <p>Books category</p>
+                 <a href="">Python</a>
+                 <a href="">Ethical hacking</a> 
+                 <a href="">Django Web development</a>
+                 <a href=""> Android </a>
+                 <a href="">Kotlin</a>
+      
+            </div>  
+            <a href="">Upload book</a>
+            
+                
+         </aside>
+   </section>
+{% endblock %}
