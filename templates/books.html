@@ -3,10 +3,15 @@
 {% block css %}
     <link rel="stylesheet" href="{% static 'books.css' %}"/>
 {% endblock %} 
+
+{% block js %}
+     <script src="{% static 'highlightcategory.js' %}">
+
+     </script>
+{% endblock %}
 {% block content %}
 <div class="white-title-container">
-    
-    
+   
 </div>
 <section class="main-grid">
    <section class="books">
@@ -51,15 +56,15 @@
    <aside>
       <div class="books-category">
           <p>Books category</p>
-           <a href="">Python</a>
-           <a href="">Ethical hacking</a> 
-           <a href="">Django Web development</a>
-           <a href=""> Android </a>
-           <a href="">Kotlin</a>
+          {% for cate in category %} 
+ 
+          <a href="/books/show?q={{cate}}" onclick="highlight(this);"> {{cate}}</a>
+
+          {% endfor %}
+
 
       </div>  
-      <a href="">Upload book</a>
-      
+     
           
    </aside>
 </section>

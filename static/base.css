@@ -88,6 +88,9 @@ header h1 {
       header {
         width:100%;
       }
+      .mobile-category a {
+          color:white;
+      }
 
     .mobile-menu > div {
         width: 100%;
@@ -118,9 +121,16 @@ header h1 {
         background:white;
     }
     
-    #hidden > *{
+    #hidden {
+        border-top:1px solid white;
+        padding:5px 0;
+        margin-top:2px;
+    }
+    #hidden a{
        display:block;
-    
+       text-decoration: none;
+       margin:3px 0;
+       text-indent: 10px;
     }
     .menu-account {
         display:flex;
@@ -131,11 +141,13 @@ header h1 {
         flex-direction: row;
     
     }
+    .upload a {
+        color:white;
+
+    }
 }
 
-.profile_photo {
 
-}
 .common-links a {
     text-decoration: none;
     padding:0 3px;
@@ -152,9 +164,8 @@ header h1 {
 
      }
      #hidden {
-        display:flex;
-        justify-content: space-around;
-        width:30%;
+        display:none;
+       
 
      }
      .common-links {
@@ -173,13 +184,10 @@ header h1 {
        justify-content: flex-end;
     }
     #hidden {
-       display: flex;
-       width: 30%;
-       margin-left: 10px;
+       display: none;
+       
     }
-    #hidden a {
-        margin-left:10px;
-    }
+  
     .common-links {
         display: flex;
         flex-direction: row;
@@ -232,4 +240,7 @@ header h1 {
 }
 .signup:hover,.signin:hover {
     opacity: 1;
+}
+.links a {
+    display:block;
 }

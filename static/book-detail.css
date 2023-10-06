@@ -17,30 +17,31 @@
     text-align: center;
     padding: 10px;
     font-size: 20px;
-    background-color: #343a40;
+    background-color: green;
     color: white;
     border:none;
     cursor: pointer;
+    opacity:0.9;
 }
 .download-btn:hover {
-    background-color: green;
+    opacity:1;
 }
 .metadata p {
     text-transform: capitalize;
 }
-.book-detail h1, .book-detail h3 {
+.book-detail h1, .book-detail h3,h4 {
     color: darkslategray;
     padding: 10px 0;
 }
 .book-detail h3 {
     border-bottom: 1px solid darkslategrey;
 }
-.description {
-    border-right: 1px solid darkslategrey;
-}
-.download-btn-container {
-    display: none;
-}
+
+.download-btn {
+    display: block;
+ }
+ 
+
 @media only screen  and 
 (max-width: 480px) {
      .book-detail {
@@ -51,9 +52,31 @@
      .book-container > div {
         display: block; 
      }
-     .download-btn {
-        display: block;
-     }
+     
+   aside {
+    display:none;
+   }
+   .mobile-links {
+    display: block;
+    margin:10px;
+    width: 100%
+
+   }
+   .mobile-links a {
+    display: inline-block;
+    padding: 5px;
+    color:green;
+    border-radius: 10px;
+    text-decoration: none;
+    margin:10px;
+    outline:1px solid green;
+
+   }
+}
+.metadata p span {
+    color: blue;
+    margin:3px 0;
+    padding: 2px;
 
 }
 @media only screen and 
@@ -68,30 +91,9 @@
         display: flex;
 
     }
-    .download-btn {
-        display: none;
-    }
-    .download-btn-container {
-        display: block;
-        position: absolute;
-        bottom:10%;
-        left:5%;
-        width:100%;
-    }
-    .download-btn-container input[type="button"] {
-         width: 80%;
-         border:none;
-         background-color: #343a40;
-         padding: 10px;
-         font-size: 20px;
-         cursor: pointer;
-         color: white;
-         border-radius: 3px;
-    }
-
-    .download-btn-container input[type="button"]:hover {
-        background-color: green;
-    }
+    .mobile-links {
+        display:none;
+     }
     .book-detail {
         width: 80%;
         margin-left: auto;
@@ -107,6 +109,12 @@
         padding-top: 20px;
         position: relative;
      }
+
+}
+.description p {
+    padding:5px 10px;
+    font-size:13px;
+    text-align:start;
 
 }
 aside {

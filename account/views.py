@@ -9,6 +9,7 @@ from .models import UserProfile,DownloadBook,UploadBooks
 # Create your views here.
 
 def user_login(request):
+    number_of_tries = 3
     login_error_msg = ''
     if request.method == "POST":
         login_form = LoginForm(request.POST)
@@ -17,6 +18,7 @@ def user_login(request):
             form_data = login_form.cleaned_data 
 
             user = authenticate(username=form_data['username'],password=form_data['password'])
+            
             if user is not None:
                 if user.is_active:
                     login(request,user)
@@ -27,7 +29,8 @@ def user_login(request):
                     login_error_msg = "Your Account is blocked!"
 
             else:
-                login_error_msg = "Wrong Username or passwrd!"
+                login_error_msg = "Wrong username or password!"
+               
         else:
             login_error_msg = "Invalid login"
     else:
@@ -36,7 +39,7 @@ def user_login(request):
 
 def user_logout(request):
     logout(request)
-    return redirect("/books/")
+    return redirect("/books/show")
 
 def user_signup(request):
     account_created = False 

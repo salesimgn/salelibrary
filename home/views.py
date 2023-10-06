@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from bookstore.models import BookInfo
+from django.contrib.auth.models import User 
 
 # Create your views here.
 
@@ -16,4 +17,7 @@ def homepage(request):
 
 
 def aboutpage(request):
-    return 
+    
+    user = User.objects.get(username="sale")
+
+    return render(request,"about.html",{"page":"about","author":user}) 

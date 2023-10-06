@@ -103,6 +103,23 @@ aside a {
   box-shadow: 1px 1px 3px 2px cyan;
 
 }
+.highlight {
+    background: white;
+}
+.upload {
+    display:none;
+    text-decoration: none;
+    font-size: 20px;
+    background-color: green;
+    padding:5px 3px;
+    outline:1px solid white;
+    position: relative;
+    top:-30px;
+    left:20px;
+    color:white;
+
+
+}
 @media only screen and 
 (min-width:500px) and
 (max-width:767px) {
@@ -125,6 +142,10 @@ aside a {
     }
     .main-grid {
         display:block;
+    }
+    .upload {
+        display: inline-block;
+
     }
     .books-grid {
         display:grid;

@@ -8,7 +8,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <link rel="icon" type="image/x-icon" href="{% static 'images/logo.png' %}" />
     <title>
       {% block title %}SaleLibrary
       {% endblock %}
@@ -82,13 +82,19 @@
                                           class="active"
                                         {% endif %}
                                         class="nav-link">Home</a>
-                                  <a href="{% url 'bookstore:books' %}"  {% if page == 'books' %}
+                                  <a href="/books/show"  {% if page == 'books' %}
                                         class="active"
                                       {% endif %}class="nav-link ">Books</a>
+
+                                      <a href="{% url 'bookstore:upload' %}"  {% if page == 'upload' %}
+                                      class="active"
+                                    {% endif %}class="nav-link ">Upload book</a>
 
                                     <a href="{% url 'aboutpage' %}"  {% if page == 'about' %}
                                       class="active"
                                     {% endif %}class="nav-link ">About</a>
+                                    
+                                    
                             </div>
                         <div class="mobile-menu" data-menu="on"
                               onclick="showMenu();">
@@ -107,8 +113,15 @@
                         
                          <div id="hidden">
                             
+                            <div class="mobile-category">
+                                <p> Books category</p>
+                              {% for cate in category %} 
+ 
+                                  <a href="/books/show?q={{cate}}" onclick="highlight(this);"> {{cate}}</a>
+
+                              {% endfor %}
+                            </div>
                             
-                         
                         </div>
                         
             </nav>

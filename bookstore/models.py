@@ -18,14 +18,15 @@ from  pypdf import PdfReader
 # Create your models here.
 CHOICES =(
             ("python","Python"),
-            ("Kali","Kali"),
+            ("Kali linux","Kali linux"),
             ("Linux command","Linux command"),
             ("Networking","Networking"),
             ("Ethical hacking","Ethical hacking"),
             ("Django","Django"),
             ("Android","Android"),
             ("Kotlin","Kotlin"),
-            ("Handout","Handout")
+            ("Handout","Handout"),
+            ("Javascript","javascript"),
         )
 
 FILE_TYPE = (

@@ -11,31 +11,43 @@ form {
     margin:10px;
     margin-left: auto;
     margin-right: auto; 
-    background-color: #141a20;
-    color:white;
+    color:blue;
     padding: 10px;
-    box-shadow: 1px 1px 10px 3px gray; 
+    box-shadow: 1px 1px 5px 1px gray; 
 
 }
-input[type="submit"] {
-    padding: 3px;
-    font-size:16px;
-}
+
 section h1 {
     text-align: center;
     color: #343a40;
     padding:5px;
 }
+form input:not(input[type='submit']) {
+    width:100%;
+}
 
 @media only screen and 
     (max-width:480px) {
-        form {
-            width:90%;
-        }
+       
         .create-account-form {
-            display: flex;
+            display:flex;
             flex-direction: column;
+            padding:0px;
+            width:100%;
         }
+        form {
+            width:100%;
+        }
+        .btns {
+            display:flex;
+            justify-content: space-around;
+        }
+
+
+        .btns a {
+            font-size:10px;
+        }
+
     }
 @media only screen and 
 (max-width:1280px) {
@@ -47,6 +59,10 @@ section h1 {
     }
     form {
         margin-top: 10%;
+    }
+    input[type="submit"] {
+        padding: 3px;
+        font-size:16px;
     }
 
 }
@@ -60,6 +76,13 @@ section h1 {
         margin-right: auto;
         
     }
+    .btns {
+        padding: 3px 10px;
+    }
+    input[type="submit"] {
+        padding: 3px;
+        font-size:16px;
+    }
 }
 .field p {
     padding:5px;
@@ -67,21 +90,11 @@ section h1 {
 .field p input {
     padding:5px;
 }
-.btns {
-    display: flex;
-    justify-content: space-between;
-    padding: 3px 10px;
-}
+
 .btns a {
     color:blue;
 }
-.create-account-form {
-    display: flex;
-    margin-top:50px;
-    outline:1px solid #343a40;
-    padding:10px;
-    
-}
+
 .img-div img {
     width: 100%;
 }

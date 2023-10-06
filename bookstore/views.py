@@ -12,10 +12,32 @@ from account.forms import EditBookForm,UploadFileForm
 
 def get_all_books(request):
     # add pagination 
-    books = BookInfo.objects.all()
+    books = None 
+    book_category = "Random Books List"
+    categorys = ["All"]
+    load_all_category = BookInfo.objects.all()
+
+    for record in load_all_category:
+        if record.category not in categorys:
+            categorys.append(record.category)
+
+
+    books_category = request.GET.get("q")
+    
+    if books_category is None and request.user.is_authenticated:
+        books = BookInfo.objects.filter(department__icontains=request.user.profile.department)
+        book_category = "Recommended Books List"
+    elif books_category:
+            if books_category == "all":
+                        books = BookInfo.objects.all()
+                        book_category = " All Books List"
+            else:             
+                books = BookInfo.objects.filter(category=books_category)
+                book_category = "%s Books List" %(books_category)
+    else :
+         books = BookInfo.objects.all()
     pages = Paginator(books,2) 
     page = request.GET.get("page")    # extraction of request data
-
 
     try:
         boks= pages.page(page)
@@ -26,15 +48,24 @@ def get_all_books(request):
     except EmptyPage:
         boks = pages.page(pages.num_pages) 
 
-    book_category = "Random Books List"
+   
 
-    return render(request,"books.html",{"books":books,"page":"books","bc":book_category})
+    return render(request,"books.html",
+        {"books":books,
+        "page":"books",
+        "bc":book_category,
+        "category":categorys})
 
 def book_detail(request,slug):
-    
+    categorys = ["All"]
+    load_all_category = BookInfo.objects.all()
+    for record in load_all_category:
+        if record.category not in categorys:
+            categorys.append(record.category)
+
     book = get_object_or_404(BookInfo,slug=slug)
     
-    return render(request,"book-detail.html",{"book":book,"page":"books"})   
+    return render(request,"book-detail.html",{"book":book,"page":"books","category":categorys})   
 
 @login_required(login_url="/accounts/login/")
 def book_download(request,slug):
@@ -74,7 +105,7 @@ def upload_books(request):
     print("wwwwwww")
     return render(request,"upload_book.html",
         {"upload_form":upload_form,
-        "page":"books",
+        "page":"upload",
         'b_exist': book_exist
         }) 
 @login_required(login_url="/accounts/login/")
